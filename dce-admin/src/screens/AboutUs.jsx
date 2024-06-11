@@ -5,8 +5,24 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
 import { NavLink } from "react-router-dom";
+import Table from "../components/Table";
 
 
+const affilitationCol = ["S.no","Name of Department", "Approved Intake" , "Since"];
+const affilitationData = [
+  {
+    id : "1",
+    department : "Computer Science & Engineering",
+    intake : "60",
+    since : "1999"
+  },
+  {
+    id : "2",
+    department : "Computer Science & Engineering",
+    intake : "60",
+    since : "1999"
+  }
+]
 
 const About = () => {
   return (
@@ -56,37 +72,27 @@ const About = () => {
               <p className="text-left text-xl font-semibold text-slate-600 m-4">
                 Afiliation
               </p>
-              <div className="text-right m-4 text-sky-600">
+
+              <div className="flex space-x-3">
+
+              <AddAfiliation/>
+                <div className="text-right m-4 text-sky-600">
                 <span className="inline-block">
-                 
                   <NavLink to=""> View All</NavLink>{" "}
                 </span>
                 <FaArrowRight className="inline-block" />
               </div>
+
+              </div>
+              
             </div>
 
-            <table className="w-full p-2 m-4 border border-gray-300 rounded-lg ">
-              <thead className="bg-cyan-100 text-black">
-                <tr>
-                  <th className="p-2 text-center">S.No</th>
-                  <th className="p-2 text-center">Name of Department</th>
-                  <th className="p-2 text-center">Approved intake</th>
-                  <th className="p-2 text-center">Since</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t border-gray-300">
-                  <td className="p-2 text-center">hello</td>
-                  <td className="p-2 text-center">how</td>
-                  <td className="p-2 text-center">are</td>
-                  <td className="p-2 text-center">you</td>
-                </tr>
-                {/* Add more rows as needed */}
-              </tbody>
-            </table>
+            
+
+            <Table col={affilitationCol} data={affilitationData}/>
           </div>
           <div className="flex justify-center ">
-      <AddAfiliation/>
+      
     </div>
         </div>
       </div>
